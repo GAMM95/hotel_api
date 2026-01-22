@@ -76,7 +76,7 @@ La aplicación se configura principalmente con `application.properties` y variab
 ```properties
 spring.profiles.active=dev
 server.port=8080
-spring.datasource.url=jdbc:postgresql://localhost:5432/hotel
+spring.datasource.url=jdbc:postgresql://localhost:5432/hotel_db
 spring.datasource.username=postgres
 spring.datasource.password=secret
 ```

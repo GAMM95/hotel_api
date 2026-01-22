@@ -5,6 +5,7 @@ import com.gamm.hotel_api.service.HuespedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.net.URI;
 
 import java.util.List;
@@ -39,8 +40,9 @@ public class HuespedController {
 
   // Actualizar huésped
   @PutMapping("/{id}")
-  public ResponseEntity<HuespedDTO> actualizarHuesped(@PathVariable Integer id,
-                                                          @RequestBody HuespedDTO huespedDTO) {
+  public ResponseEntity<HuespedDTO> actualizarHuesped(
+      @PathVariable Integer id,
+      @RequestBody HuespedDTO huespedDTO) {
     return ResponseEntity.ok(huespedService.actualizarHuesped(id, huespedDTO));
   }
 
