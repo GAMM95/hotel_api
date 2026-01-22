@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "reserva_servicio",
+@Table(name = "detalle_reserva",
     uniqueConstraints = @UniqueConstraint(columnNames = {"reserva_id", "servicio_id"}))
 public class DetalleReserva {
 
@@ -20,12 +20,13 @@ public class DetalleReserva {
   private Integer id;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "reserva_id")
+  @JoinColumn(name = "reserva_id", nullable = false)
   private Reserva reserva;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "servicio_id")
+  @JoinColumn(name = "servicio_id", nullable = false)
   private Servicio servicio;
 
+  @Column(nullable = false)
   private Integer cantidad = 1;
 }

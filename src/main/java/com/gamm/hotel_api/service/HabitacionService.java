@@ -2,6 +2,7 @@ package com.gamm.hotel_api.service;
 
 import com.gamm.hotel_api.dto.HabitacionDTO;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface HabitacionService {
@@ -27,4 +28,10 @@ public interface HabitacionService {
   List<HabitacionDTO> buscarPorTipo(String tipo);
 
   List<HabitacionDTO> buscarPorHotelYTipo(Integer idHotel, String tipo);
+
+  // Búsqueda por precio
+  List<HabitacionDTO> buscarPorRangoPrecio(BigDecimal min, BigDecimal max);
+
+  List<HabitacionDTO> buscarPorHotelYRangoPrecio(Integer hotelId, BigDecimal min, BigDecimal max);
+
 }

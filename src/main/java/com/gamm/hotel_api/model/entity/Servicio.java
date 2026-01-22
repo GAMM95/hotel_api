@@ -13,7 +13,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "servicio")
+@Table(name = "servicio",
+    uniqueConstraints = @UniqueConstraint(columnNames = {"nombre", "hotel_id"}))
 public class Servicio {
 
   @Id
@@ -27,4 +28,9 @@ public class Servicio {
 
   @Column(nullable = false, precision = 10, scale = 2)
   private BigDecimal precio;
+
+  // Relación con hotel
+  @ManyToOne
+  @JoinColumn(name = "hotel_id", nullable = false)
+  private Hotel hotel;
 }

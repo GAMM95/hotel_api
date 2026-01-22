@@ -17,4 +17,8 @@ public class PagoDTO {
   private String metodo;
   private String estado;
   private LocalDateTime fechaPago;
+
+  // NUEVO: total pagado hasta ahora y restante de la reserva
+  private BigDecimal totalPagado;
+  private BigDecimal restante;
 }

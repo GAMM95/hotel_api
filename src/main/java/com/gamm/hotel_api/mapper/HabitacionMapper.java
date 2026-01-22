@@ -3,6 +3,8 @@ package com.gamm.hotel_api.mapper;
 import com.gamm.hotel_api.dto.HabitacionDTO;
 import com.gamm.hotel_api.model.entity.Habitacion;
 
+import java.math.BigDecimal;
+
 public class HabitacionMapper {
 
   // Entity → DTO
@@ -13,26 +15,28 @@ public class HabitacionMapper {
         .id(habitacion.getId())
         .numero(habitacion.getNumero())
         .estado(habitacion.getEstado().name())
+        .idTipoHabitacion(habitacion.getTipoHabitacion().getId())
         .tipoHabitacion(habitacion.getTipoHabitacion().getNombre())
         .idHotel(habitacion.getHotel().getId())
+        .precio(habitacion.getPrecio())
         .build();
   }
 
   // DTO → Entity para creación
   public static Habitacion toEntity(HabitacionDTO dto) {
     if (dto == null) return null;
-
     Habitacion habitacion = new Habitacion();
     habitacion.setNumero(dto.getNumero());
-    // Estado y relaciones (Hotel y TipoHabitacion) deben asignarse en el Service
+    habitacion.setPrecio(dto.getPrecio() != null ? dto.getPrecio() : BigDecimal.ZERO);
     return habitacion;
   }
 
   // Actualizar entity existente con DTO
   public static void updateEntity(Habitacion habitacion, HabitacionDTO dto) {
     if (habitacion == null || dto == null) return;
-
     habitacion.setNumero(dto.getNumero());
-    // Estado y relaciones se actualizan en el service
+    if (dto.getPrecio() != null) {
+      habitacion.setPrecio(dto.getPrecio());
+    }
   }
 }

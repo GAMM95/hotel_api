@@ -2,6 +2,7 @@ package com.gamm.hotel_api.dto;
 
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,5 +29,5 @@ public class ReservaDTO {
   private List<DetalleReservaDTO> servicios;
 
   // Total calculado
-  private Double total;
+  private BigDecimal total;
 }

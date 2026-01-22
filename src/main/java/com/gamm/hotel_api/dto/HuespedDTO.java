@@ -21,6 +21,6 @@ public class HuespedDTO {
   private LocalDate fechaNacimiento;
 
   // Datos de Huesped
-  private Integer id;          // opcional para actualizar
+  private Integer id;
   private String nacionalidad;
 }

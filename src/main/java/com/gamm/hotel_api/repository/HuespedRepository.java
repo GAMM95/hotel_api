@@ -21,16 +21,15 @@ public interface HuespedRepository extends JpaRepository<Huesped, Integer> {
   Optional<Huesped> findByPersona_NumeroDocumento(String numeroDocumento);
 
   // Por tipo y número de documento
-  Optional<Huesped> findByPersona_TipoDocumentoAndPersona_NumeroDocumento(
-      TipoDocumento tipoDocumento,
+  Optional<Huesped> findByPersona_TipoDocumentoAndPersona_NumeroDocumento(TipoDocumento tipoDocumento,
       String numeroDocumento
   );
 
   // Por email
-  Optional<Huesped> findByPersona_Email(String email);
+  Optional<Huesped> findByPersona_EmailContainingIgnoreCase(String email);
 
   // Por teléfono
-  List<Huesped> findByPersona_TelefonoContaining(String telefono);
+  List<Huesped> findByPersona_Telefono(String telefono);
 
   // Por nombre completo
   List<Huesped> findByPersona_NombreContainingIgnoreCaseAndPersona_ApellidosContainingIgnoreCase(
@@ -39,5 +38,5 @@ public interface HuespedRepository extends JpaRepository<Huesped, Integer> {
   );
 
   // Por nacionalidad
-  List<Huesped> findByNacionalidadIgnoreCase(String nacionalidad);
+  List<Huesped> findByNacionalidad(String nacionalidad);
 }

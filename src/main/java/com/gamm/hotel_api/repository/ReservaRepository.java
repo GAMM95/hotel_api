@@ -24,4 +24,21 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
   List<Reserva> findByFechaInicioLessThanEqualAndFechaFinGreaterThanEqual(
       LocalDate inicio, LocalDate fin
   );
+
+
+  boolean existsByHabitacion_IdAndEstadoInAndFechaInicioLessThanEqualAndFechaFinGreaterThanEqual(
+      Integer habitacionId,
+      List<EstadoReserva> estados,
+      LocalDate fechaFin,
+      LocalDate fechaInicio
+  );
+
+  boolean existsByHabitacion_IdAndIdNotAndEstadoInAndFechaInicioLessThanEqualAndFechaFinGreaterThanEqual(
+      Integer habitacionId,
+      Integer reservaId,
+      List<EstadoReserva> estados,
+      LocalDate fechaFin,
+      LocalDate fechaInicio
+  );
+
 }

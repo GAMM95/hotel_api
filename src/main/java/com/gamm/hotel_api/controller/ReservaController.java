@@ -16,10 +16,16 @@ public class ReservaController {
   private ReservaService reservaService;
 
   // ---------- CRUD ----------
-
   @PostMapping
   public ReservaDTO crear(@RequestBody ReservaDTO dto) {
-    return reservaService.crearReserva(dto);
+    return reservaService.registrarReserva(dto);
+  }
+
+  @PutMapping("{id}")
+  public ReservaDTO actualizarReserva(
+      @PathVariable Integer id,
+      @RequestBody ReservaDTO dto) {
+    return reservaService.actualizarReserva(id, dto);
   }
 
   @GetMapping
@@ -38,10 +44,14 @@ public class ReservaController {
   }
 
   // ---------- Estados de la reserva ----------
-
   @PutMapping("/{id}/confirmar")
   public ReservaDTO confirmar(@PathVariable Integer id) {
     return reservaService.confirmarReserva(id);
+  }
+
+  @PutMapping("{id}/check-in")
+  public ReservaDTO checkIn(@PathVariable Integer id){
+    return reservaService.checkIn(id);
   }
 
   @PutMapping("/{id}/cancelar")
@@ -49,13 +59,12 @@ public class ReservaController {
     return reservaService.cancelarReserva(id);
   }
 
-  @PutMapping("/{id}/finalizar")
+  @PutMapping("/{id}/check-out")
   public ReservaDTO finalizar(@PathVariable Integer id) {
-    return reservaService.finalizarReserva(id);
+    return reservaService.checkOut(id);
   }
 
   // ---------- Búsquedas usando params ----------
-
   @GetMapping("/buscar/estado")
   public List<ReservaDTO> buscarPorEstado(@RequestParam String estado) {
     return reservaService.buscarPorEstado(estado);

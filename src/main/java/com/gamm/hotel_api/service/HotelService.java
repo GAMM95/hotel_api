@@ -1,6 +1,7 @@
 package com.gamm.hotel_api.service;
 
 import com.gamm.hotel_api.dto.HotelDTO;
+import com.gamm.hotel_api.model.entity.Hotel;
 
 import java.util.List;
 
@@ -24,4 +25,7 @@ public interface HotelService {
   List<HotelDTO> buscarPorEstrellas(Integer estrellas);
 
   List<HotelDTO> buscarPorRangoEstrellas(Integer min, Integer max);
+
+  List<HotelDTO> buscarPorDireccion(String direccion);
+
 }

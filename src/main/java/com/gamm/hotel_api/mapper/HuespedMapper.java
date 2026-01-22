@@ -27,7 +27,8 @@ public class HuespedMapper {
   }
 
   // DTO → Huesped (para registrar)
-  public static Huesped toEntity(HuespedDTO dto) {
+  // Para registrar el TipoDocumento ya esta validado desde el service
+  public static Huesped toEntity(HuespedDTO dto, TipoDocumento tipoDocumento) {
     if (dto == null) return null;
 
     Persona persona = Persona.builder()
@@ -35,7 +36,7 @@ public class HuespedMapper {
         .apellidos(dto.getApellidos())
         .email(dto.getEmail())
         .telefono(dto.getTelefono())
-        .tipoDocumento(TipoDocumento.valueOf(dto.getTipoDocumento().toUpperCase()))
+        .tipoDocumento(tipoDocumento)
         .numeroDocumento(dto.getNumeroDocumento())
         .fechaNacimiento(dto.getFechaNacimiento())
         .build();
@@ -47,13 +48,13 @@ public class HuespedMapper {
   }
 
   // Actualizar entidad existente con DTO
-  public static void updateEntity(Huesped huesped, HuespedDTO dto) {
+  public static void updateEntity(Huesped huesped, HuespedDTO dto, TipoDocumento tipoDocumento) {
     Persona persona = huesped.getPersona();
     persona.setNombre(dto.getNombre());
     persona.setApellidos(dto.getApellidos());
     persona.setEmail(dto.getEmail());
     persona.setTelefono(dto.getTelefono());
-    persona.setTipoDocumento(TipoDocumento.valueOf(dto.getTipoDocumento().toUpperCase()));
+    persona.setTipoDocumento(tipoDocumento);
     persona.setNumeroDocumento(dto.getNumeroDocumento());
     persona.setFechaNacimiento(dto.getFechaNacimiento());
 

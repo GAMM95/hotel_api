@@ -35,8 +35,9 @@ public class HotelController {
 
   // Actualizar
   @PutMapping("/{id}")
-  public ResponseEntity<HotelDTO> actualizar(@PathVariable Integer id,
-                                             @RequestBody HotelDTO dto) {
+  public ResponseEntity<HotelDTO> actualizar(
+      @PathVariable Integer id,
+      @RequestBody HotelDTO dto) {
     return ResponseEntity.ok(hotelService.actualizarHotel(id, dto));
   }
 

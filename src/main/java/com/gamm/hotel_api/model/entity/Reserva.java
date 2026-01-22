@@ -52,6 +52,12 @@ public class Reserva {
   @OneToMany(mappedBy = "reserva",
       cascade = CascadeType.ALL,
       orphanRemoval = true,
-      fetch = FetchType.EAGER)
+      fetch = FetchType.LAZY)
   private List<DetalleReserva> servicios = new ArrayList<>();
+
+  @OneToMany(mappedBy = "reserva",
+      cascade = CascadeType.ALL,
+      orphanRemoval = true,
+      fetch = FetchType.LAZY)
+  private List<Pago> pagos = new ArrayList<>();
 }

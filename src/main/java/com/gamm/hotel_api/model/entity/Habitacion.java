@@ -2,10 +2,15 @@ package com.gamm.hotel_api.model.entity;
 
 import com.gamm.hotel_api.model.enums.EstadoHabitacion;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -20,11 +25,14 @@ public class Habitacion {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(nullable = false, length = 10)
+  @NotBlank
+  @Size(max=10)
+  @Column(nullable = false)
   private String numero;
 
   @Enumerated(EnumType.STRING)
-  @Column(nullable = false)
+  @Column(columnDefinition = "estado_habitacion_enum", nullable = false)
+  @NotNull
   private EstadoHabitacion estado;
 
   @ManyToOne
@@ -34,4 +42,8 @@ public class Habitacion {
   @ManyToOne
   @JoinColumn(name = "tipo_habitacion_id", nullable = false)
   private TipoHabitacion tipoHabitacion;
+
+  @Column(nullable = false, precision = 10, scale = 2)
+  @NotNull
+  private BigDecimal precio;
 }

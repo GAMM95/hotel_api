@@ -1,7 +1,13 @@
 package com.gamm.hotel_api.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,17 +22,26 @@ public class Hotel {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(nullable = false, length = 150)
+  @NotBlank
+  @Size(max = 150)
+  @Column(nullable = false)
   private String nombre;
 
   @Column(nullable = false)
   private String direccion;
 
-  @Column(nullable = false, length = 100)
+  @NotBlank
+  @Size(max = 100)
+  @Column(nullable = false)
   private String ciudad;
 
-  @Column(length = 20)
+  @Size(max = 20)
   private String telefono;
 
+  @Min(1)
+  @Max(5)
   private Integer estrellas;
+
+  @OneToMany(mappedBy = "hotel")
+  private List<Servicio> servicios;
 }

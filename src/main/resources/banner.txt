@@ -10,19 +10,20 @@ ${AnsiColor.BRIGHT_CYAN} Autor:${AnsiColor.BRIGHT_WHITE} Jhonatan Mantilla
 ${AnsiColor.BRIGHT_CYAN} Java Version:${AnsiColor.BRIGHT_WHITE} ${java.version}
 ${AnsiColor.BRIGHT_CYAN} Spring Boot Version:${AnsiColor.BRIGHT_WHITE} ${spring-boot.version}
 ${AnsiColor.BRIGHT_CYAN} Fecha de inicio:${AnsiColor.BRIGHT_WHITE} 2025-10-05
-${AnsiColor.BRIGHT_CYAN} Estado:${AnsiColor.BRIGHT_GREEN} ⚡ Aplicación inicializada correctamente ✅${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_CYAN} Estado:${AnsiColor.BRIGHT_GREEN} ⚡ Aplicación inicializada correctamente${AnsiColor.DEFAULT}
 
 ${AnsiColor.BRIGHT_YELLOW}────────────────────────────────────────────
 ${AnsiColor.BRIGHT_CYAN} ▒▒ CONFIGURACIÓN DE BASE DE DATOS ▒▒
 ${AnsiColor.BRIGHT_YELLOW}────────────────────────────────────────────
-${AnsiColor.BRIGHT_CYAN} Motor:${AnsiColor.BRIGHT_WHITE} Postgres
+${AnsiColor.BRIGHT_CYAN} Motor:${AnsiColor.BRIGHT_WHITE} PostgreSQL
 ${AnsiColor.BRIGHT_CYAN} Host:${AnsiColor.BRIGHT_WHITE} localhost
-${AnsiColor.BRIGHT_CYAN} Puerto:${AnsiColor.BRIGHT_WHITE} 3306
+${AnsiColor.BRIGHT_CYAN} Puerto:${AnsiColor.BRIGHT_WHITE} 5432
 ${AnsiColor.BRIGHT_CYAN} Base de datos:${AnsiColor.BRIGHT_WHITE} hotel_db
 ${AnsiColor.BRIGHT_CYAN} Usuario:${AnsiColor.BRIGHT_WHITE} ${spring.datasource.username}
 ${AnsiColor.BRIGHT_CYAN} Driver:${AnsiColor.BRIGHT_WHITE} ${spring.datasource.driver-class-name}
 ${AnsiColor.BRIGHT_CYAN} URL:${AnsiColor.BRIGHT_WHITE} ${spring.datasource.url}
+
 ${AnsiColor.BRIGHT_YELLOW}────────────────────────────────────────────
 ${AnsiColor.BRIGHT_CYAN} Perfil activo:${AnsiColor.BRIGHT_WHITE} ${spring.profiles.active:default}
-${AnsiColor.BRIGHT_CYAN} Puerto de servidor:${AnsiColor.BRIGHT_WHITE} ${server.port}
+${AnsiColor.BRIGHT_CYAN} Puerto de servidor:${AnsiColor.BRIGHT_WHITE} ${server.port:8080}
 ${AnsiColor.BRIGHT_YELLOW}────────────────────────────────────────────
