@@ -4,14 +4,13 @@
 ---
 API REST para gestión de hoteles, habitaciones, reservas, servicios y pagos, desarrollada con Spring Boot y PostgreSQL, pensada para una cadena hotelera.
 
----
 ## Tecnologías
 
 **Backend:** Java 17, Spring Boot 4.0, Spring Data JPA / Hibernate, MapStruct (DTO ↔ Entidad), Lombok (opcional)
 
 **Base de datos:** PostgreSQL
 
----
+
 ## Entidades y Tablas
 | Entidad          | Descripción          |
 |:-----------------|:------------------------------------------------------|
@@ -27,8 +26,8 @@ API REST para gestión de hoteles, habitaciones, reservas, servicios y pagos, de
 | `Pago`           | Pagos asociados a reservas, con estado y fecha.                                 |
 
 ### UML
-![UML](![UML.png](src/main/resources/UML.png))
----
+![Diagrama UML](https://raw.githubusercontent.com/GAMM95/hotel_api/main/src/main/resources/UML.png)
+
 ## Reglas de Negocio
 1. **Reservas**
     - Solo se pueden crear reservas en fechas futuras.
@@ -170,9 +169,6 @@ spring.datasource.password=secret
    }
    ```
 - #### Buscar pagos por estado - GET: `/api/pagos/buscar/estado?estado=PENDIENTE`
-
-
----
 
 ## Autor
 
